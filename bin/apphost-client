@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'apphost_client'
+require 'apphost_client/cli'
+
+AppHost::Client::CLI::run
+
