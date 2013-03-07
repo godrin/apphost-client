@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 
 require File.expand_path('../../apphost_client.rb',__FILE__)
+require 'pp'
 
 module AppHost
   module Client
     module CLI
+
       def self.run
 
 	client=AppHost::Client::Access.new
@@ -38,6 +40,11 @@ module AppHost
 		puts "Deleting repo #{repoName}"
 		pp client.removeRepo(repoName)
 	      end
+	    else
+	      puts "Help upon group 'repo':"
+	      puts " apphost-client repo list - list all my repositories"
+	      puts " apphost-client repo create <name> - create a repository of name <name>"
+	      puts " apphost-client repo (remove|rm|delete) <name> - destroy a repositoy, which is not revertable !" 
 	    end
 	  when "register"
 	    email=ARGV[1]
